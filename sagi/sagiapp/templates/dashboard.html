@@ -1,0 +1,48 @@
+<!-- sagi/templates/sagi/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}Dashboard | Igreja{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Dashboard Administrativo</h1>
+
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{% url 'membros' %}" class="text-decoration-none">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Membros</h5>
+            <p class="card-text display-6">{{ total_ativos }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Entradas (R$)</h5>
+          <p class="card-text display-6">{{ total_entradas }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Saídas (R$)</h5>
+          <p class="card-text display-6">{{ total_saidas }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-white bg-warning mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Tarefas pendentes</h5>
+          <p class="card-text display-6">{{ tarefas_pendentes }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

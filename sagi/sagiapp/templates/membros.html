@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Cadastros</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 95%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #eee;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de Cadastros</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Matrícula</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Sexo</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in cadastros %}
+            <tr>
+                <td>{{ c.matricula }}</td>
+                <td>{{ c.nome }}</td>
+                <td>{{ c.nascimento }}</td>
+                <td>{{ c.sexo }}</td>
+                <td>{{ c.telefone }}</td>
+                <td><a href="{% url 'edit' %}?matricula={{ c.matricula }}" class="text-decoration-none"><button>visualizar</button></td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="6">Nenhum cadastro encontrado.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
